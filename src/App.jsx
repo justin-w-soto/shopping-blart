@@ -1,4 +1,6 @@
 import React from 'react';
+import { Shopping } from './views/Shopping';
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return <Shopping />
 }

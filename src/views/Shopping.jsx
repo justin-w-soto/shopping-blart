@@ -1,5 +1,6 @@
 import React from 'react'
 import { useReducer } from 'react'
+import { AddItem } from '../components/AddItem'
 
 // create reducer function to handle state flux
 // use switch inside reducer
@@ -12,6 +13,8 @@ const initialItems = [
     { id: 1, text: 'green', done: false }, 
     { id: 2, text: 'blue', done: false } 
 ]
+
+const next = 3
 
 const customReducer = (items, action) => {
     // switch lives in here 
@@ -46,11 +49,32 @@ const customReducer = (items, action) => {
 }
 
 export const Shopping = () => {
-const [someState, dispatch] = useReducer(customReducer, initialItems)
+const [items, dispatch] = useReducer(customReducer, initialItems)
+
+const addItem = (text) => {
+    dispatch({
+        type: 'added',
+        id: next + 1, 
+        text
+    })
+}
+const updateItem = (task) => {
+    dispatch ({ 
+        type: 'updated', 
+        task
+    })
+}
+const deleteItem = (taskId) => {
+    dispatch({ 
+        type: 'deleted', 
+        id: taskId 
+    })
+}
 
     return (
-        <div>
-            
-        </div>
+        <>
+            <h1>Shopping List</h1>
+            <AddItem onAddItem={addItem}/>
+        </>
     )
 }
