@@ -7,15 +7,46 @@ import { useReducer } from 'react'
 // set initial value for useReducer
 // include add edit delete functionality
 // behavior test all 
-const initialState = { }
+const initialItems = [
+    { id: 0, text: 'yellow', done: false }, 
+    { id: 1, text: 'green', done: false }, 
+    { id: 2, text: 'blue', done: false } 
+]
 
-const customReducer = (state, action) => {
+const customReducer = (items, action) => {
     // switch lives in here 
+    switch (action.type) {
+        case 'added': {
+            return [
+                ...items,
+                {
+                    id: action.id,
+                    text: action.text,
+                    done: false
+                }
+            ]
+        }
+        case 'updated': {
+            return items.map((item) => {
+                if (item.id === action.task.id) {
+                    return action.task
+                }
+                return item
+            })
+        }
+        case 'deleted': {
+            return items.filter((item) => 
+            item.id !== action.id)
+        }
+        default: {
+            initialItems
+        }
+    }
 
 }
 
 export const Shopping = () => {
-const [someState, dispatch] = useRecuer(customReducer, initialState)
+const [someState, dispatch] = useReducer(customReducer, initialItems)
 
     return (
         <div>
