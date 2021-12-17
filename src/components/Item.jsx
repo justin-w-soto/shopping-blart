@@ -57,7 +57,7 @@ export const Item = ({ item, onChange, onDelete}) => {
             name="delete"
             onClick={() => onDelete(item.id)}
           >
-            Delete Item
+            DELETE
           </button>
         </div>
       );
