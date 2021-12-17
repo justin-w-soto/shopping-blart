@@ -1,9 +1,17 @@
 import React from 'react'
+import { Item } from './Item'
 
-export const ItemList = () => {
+export const ItemList = ({ items, onChangeItem, onDeleteItem }) => {
     return (
-        <div>
-            <Item />
-        </div>
+        <ul>
+            {items.map((item) => (
+                <li>
+                    <Item item={item} onChange={onChangeItem} onDelete={onDeleteItem}/>
+                </li>
+            ))}
+        </ul>
     )
 }
+
+
+
