@@ -1,6 +1,7 @@
 import React from 'react'
 import { useReducer } from 'react'
 import { AddItem } from '../components/AddItem'
+import { ItemList } from '../components/ItemList'
 
 // create reducer function to handle state flux
 // use switch inside reducer
@@ -75,6 +76,7 @@ const deleteItem = (taskId) => {
         <>
             <h1>Shopping List</h1>
             <AddItem onAddItem={addItem}/>
+            
         </>
     )
 }
