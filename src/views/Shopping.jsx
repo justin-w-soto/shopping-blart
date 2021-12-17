@@ -76,7 +76,8 @@ const deleteItem = (taskId) => {
         <>
             <h1>Shopping List</h1>
             <AddItem onAddItem={addItem}/>
-            
+            <ItemList items={items} onChangeItem={updateItem} onDeleteItem={deleteItem} />
         </>
     )
 }
+            
