@@ -6,7 +6,6 @@ import App from '../App';
 const item = {
   id: 1,
   text: 'yellow',
-  complete: false,
 };
 
 beforeEach(() => {
